@@ -563,10 +563,11 @@
 	<iostream>
 	"Jugador.h"
 
-1445625318 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
+1445626029 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
 	"Jugador.h"
 
-1445624923 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
+1445626477 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
+	<vector>
 
