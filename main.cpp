@@ -3,6 +3,8 @@
 #include<SDL2/SDL_image.h>
 #include<iostream>
 
+#include "Jugador.h"
+
 SDL_Window* window;
 SDL_Renderer* renderer;
 SDL_Event Event;
@@ -54,6 +56,8 @@ int main( int argc, char* args[] )
     otro_rect.w=32;
     otro_rect.h=32;
 
+    Jugador jugador(renderer);
+
     //Main Loop
     while(true)
     {
@@ -69,10 +73,12 @@ int main( int argc, char* args[] )
                     rect_character.x++;
             }
         }
+        jugador.logica();
 
         SDL_RenderCopy(renderer, background, NULL, &rect_background);
         SDL_RenderCopy(renderer, character, NULL, &rect_character);
         SDL_RenderCopy(renderer, otro_personaje, NULL, &otro_rect);
+        jugador.dibujar();
         SDL_RenderPresent(renderer);
     }
 
