@@ -58,6 +58,7 @@ int main( int argc, char* args[] )
 
     Jugador jugador(renderer);
 
+    double last_frame=0;
     //Main Loop
     while(true)
     {
@@ -73,6 +74,18 @@ int main( int argc, char* args[] )
                     rect_character.x++;
             }
         }
+
+        //SDL_Delay(17-(SDL_GetTicks()-last_frame));
+        double diferencia = SDL_GetTicks()-last_frame;
+        cout<<"Diferencia: "<<diferencia<<endl;
+        double ajuste = 17 - diferencia;
+        cout<<"Ajuste: "<<ajuste<<endl;
+        if(ajuste>0)
+            SDL_Delay(ajuste);
+        last_frame=SDL_GetTicks();
+        cout<<SDL_GetTicks()<<endl;
+
+
         jugador.logica();
 
         SDL_RenderCopy(renderer, background, NULL, &rect_background);

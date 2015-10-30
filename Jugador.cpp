@@ -3,14 +3,25 @@
 Jugador::Jugador(SDL_Renderer* renderer)
 {
     this->renderer = renderer;
-    this->textures.push_back(IMG_LoadTexture(renderer, "Personaje/down1.png"));
-    this->textures.push_back(IMG_LoadTexture(renderer, "Personaje/down2.png"));
+    this->textures["down"].push_back(IMG_LoadTexture(renderer, "Personaje/down1.png"));
+    this->textures["down"].push_back(IMG_LoadTexture(renderer, "Personaje/down2.png"));
+    this->textures["up"].push_back(IMG_LoadTexture(renderer, "Personaje/up1.png"));
+    this->textures["up"].push_back(IMG_LoadTexture(renderer, "Personaje/up2.png"));
+    this->textures["left"].push_back(IMG_LoadTexture(renderer, "Personaje/left1.png"));
+    this->textures["left"].push_back(IMG_LoadTexture(renderer, "Personaje/left2.png"));
+    this->textures["right"].push_back(IMG_LoadTexture(renderer, "Personaje/right1.png"));
+    this->textures["right"].push_back(IMG_LoadTexture(renderer, "Personaje/right2.png"));
 
-    SDL_QueryTexture(this->textures[0], NULL, NULL, &rect.w, &rect.h);
-    rect.x = 0;
-    rect.y = 0;
+    SDL_QueryTexture(this->textures["down"][0], NULL, NULL, &rect.w, &rect.h);
+    x = 0;
+    y = 0;
+
+    velocity=1.5;
+    animation_velocity=20;
 
     current_texture=0;
+
+    state="down";
 }
 
 Jugador::~Jugador()
@@ -20,7 +31,9 @@ Jugador::~Jugador()
 
 void Jugador::dibujar()
 {
-    SDL_RenderCopy(renderer, textures[current_texture], NULL, &rect);
+    rect.x = x;
+    rect.y = y;
+    SDL_RenderCopy(renderer, textures[state][current_texture], NULL, &rect);
 }
 
 void Jugador::logica()
@@ -29,25 +42,29 @@ void Jugador::logica()
 
     if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
     {
-        rect.x+=1;
+        x+=velocity;
+        state="right";
     }
     if( currentKeyStates[ SDL_SCANCODE_LEFT ] )
     {
-        rect.x-=1;
+        x-=velocity;
+        state="left";
     }
     if( currentKeyStates[ SDL_SCANCODE_UP ] )
     {
-        rect.y-=1;
+        y-=velocity;
+        state="up";
     }
     if( currentKeyStates[ SDL_SCANCODE_DOWN ] )
     {
-        rect.y+=1;
+        y+=velocity;
+        state="down";
     }
 
-    if(frames%100==0)
+    if(frames%animation_velocity==0)
     {
         current_texture++;
-        if(current_texture>=textures.size())
+        if(current_texture>=textures[state].size())
             current_texture=0;
     }
 
