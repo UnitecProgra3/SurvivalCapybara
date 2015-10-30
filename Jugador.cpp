@@ -29,13 +29,6 @@ Jugador::~Jugador()
     //dtor
 }
 
-void Jugador::dibujar()
-{
-    rect.x = x;
-    rect.y = y;
-    SDL_RenderCopy(renderer, textures[state][current_texture], NULL, &rect);
-}
-
 void Jugador::logica()
 {
     const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );

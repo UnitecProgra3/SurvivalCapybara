@@ -4,6 +4,7 @@
 #include<iostream>
 
 #include "Jugador.h"
+#include "Enemigo.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -58,6 +59,14 @@ int main( int argc, char* args[] )
 
     Jugador jugador(renderer);
 
+    vector<Enemigo*> enemigos;
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+    enemigos.push_back(new Enemigo(renderer,&jugador));
+
     double last_frame=0;
     //Main Loop
     while(true)
@@ -87,11 +96,15 @@ int main( int argc, char* args[] )
 
 
         jugador.logica();
+        for(int i=0;i<enemigos.size();i++)
+            enemigos[i]->logica();
 
         SDL_RenderCopy(renderer, background, NULL, &rect_background);
         SDL_RenderCopy(renderer, character, NULL, &rect_character);
         SDL_RenderCopy(renderer, otro_personaje, NULL, &otro_rect);
         jugador.dibujar();
+        for(int i=0;i<enemigos.size();i++)
+            enemigos[i]->dibujar();
         SDL_RenderPresent(renderer);
     }
 
