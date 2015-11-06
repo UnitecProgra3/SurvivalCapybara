@@ -2,9 +2,11 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_image.h>
 #include<iostream>
+#include<list>
 
 #include "Jugador.h"
 #include "Enemigo.h"
+#include "Proyectil.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -57,15 +59,15 @@ int main( int argc, char* args[] )
     otro_rect.w=32;
     otro_rect.h=32;
 
-    Jugador jugador(renderer);
 
-    vector<Enemigo*> enemigos;
-    enemigos.push_back(new Enemigo(renderer,&jugador));
-    enemigos.push_back(new Enemigo(renderer,&jugador));
-    enemigos.push_back(new Enemigo(renderer,&jugador));
-    enemigos.push_back(new Enemigo(renderer,&jugador));
-    enemigos.push_back(new Enemigo(renderer,&jugador));
-    enemigos.push_back(new Enemigo(renderer,&jugador));
+    list<Entidad*>entidades;
+    entidades.push_back(new Jugador(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
+    entidades.push_back(new Enemigo(&entidades,renderer));
 
     double last_frame=0;
     //Main Loop
@@ -91,17 +93,29 @@ int main( int argc, char* args[] )
             SDL_Delay(ajuste);
         last_frame=SDL_GetTicks();
 
+        for(list<Entidad*>::iterator e = entidades.begin();
+            e!=entidades.end();
+            e++)
+            (*e)->logica();
 
-        jugador.logica();
-        for(int i=0;i<enemigos.size();i++)
-            enemigos[i]->logica();
+        for(list<Entidad*>::iterator e = entidades.begin();
+            e!=entidades.end();
+            e++)
+        {
+            if((*e)->delete_flag)
+            {
+                entidades.remove(*e);
+                break;
+            }
+        }
 
         SDL_RenderCopy(renderer, background, NULL, &rect_background);
-        SDL_RenderCopy(renderer, character, NULL, &rect_character);
-        SDL_RenderCopy(renderer, otro_personaje, NULL, &otro_rect);
-        jugador.dibujar();
-        for(int i=0;i<enemigos.size();i++)
-            enemigos[i]->dibujar();
+
+        for(list<Entidad*>::iterator e = entidades.begin();
+            e!=entidades.end();
+            e++)
+            (*e)->dibujar();
+
         SDL_RenderPresent(renderer);
     }
 

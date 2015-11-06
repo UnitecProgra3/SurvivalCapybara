@@ -2,7 +2,7 @@
 
 Personaje::Personaje()
 {
-    //ctor
+    tipo = "Persoanje";
 }
 
 Personaje::~Personaje()

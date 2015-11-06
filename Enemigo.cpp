@@ -1,9 +1,9 @@
 #include "Enemigo.h"
 
-Enemigo::Enemigo(SDL_Renderer* renderer, Jugador* jugador)
+Enemigo::Enemigo(list<Entidad*>* entidades,SDL_Renderer* renderer)
 {
+    tipo = "Enemigo";
     this->renderer = renderer;
-    this->jugador = jugador;
     this->textures["down"].push_back(IMG_LoadTexture(renderer, "Enemigo/down1.png"));
     this->textures["down"].push_back(IMG_LoadTexture(renderer, "Enemigo/down2.png"));
     this->textures["up"].push_back(IMG_LoadTexture(renderer, "Enemigo/up1.png"));
@@ -16,6 +16,8 @@ Enemigo::Enemigo(SDL_Renderer* renderer, Jugador* jugador)
     SDL_QueryTexture(this->textures["down"][0], NULL, NULL, &rect.w, &rect.h);
     x = rand()%100;
     y = rand()%100;
+    rect.x=x;
+    rect.y=x;
 
     velocity=0.5;
     animation_velocity=20;
@@ -23,6 +25,18 @@ Enemigo::Enemigo(SDL_Renderer* renderer, Jugador* jugador)
     current_texture=0;
 
     state="down";
+
+    this->entidades = entidades;
+
+    for(list<Entidad*>::iterator e=entidades->begin();
+        e!=entidades->end();
+        e++)
+    {
+        if((*e)->tipo=="Jugador")
+        {
+            jugador = (Jugador*)*e;
+        }
+    }
 }
 
 Enemigo::~Enemigo()
@@ -75,10 +89,8 @@ void Enemigo::logica()
 
     if(colision(rect,jugador->rect))
     {
-        cout<<"Colision!"<<endl;
-    }else
-    {
-        cout<<endl;
+        jugador->delete_flag = true;
+        cout<<"Colision con jugador"<<endl;
     }
 
     frames++;

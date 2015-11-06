@@ -2,7 +2,8 @@
 
 Entidad::Entidad()
 {
-    //ctor
+    tipo = "Entidad";
+    delete_flag=false;
 }
 
 Entidad::~Entidad()

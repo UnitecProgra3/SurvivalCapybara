@@ -557,20 +557,24 @@
 	<SDL2/SDL_image.h>
 	<iostream>
 
-1446824520 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/main.cpp
+1446831446 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/main.cpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
+	<list>
 	"Jugador.h"
 	"Enemigo.h"
+	"Proyectil.h"
 
-1446227841 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
+1446831875 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
 	"Jugador.h"
 
-1446227970 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
+1446830928 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
+	<list>
 	"Personaje.h"
+	"Proyectil.h"
 
-1446825297 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Personaje.h
+1446828806 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Personaje.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
@@ -578,22 +582,25 @@
 	<map>
 	"Entidad.h"
 
-1446825308 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Personaje.cpp
+1446828578 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Personaje.cpp
 	"Personaje.h"
 
-1446229760 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Enemigo.h
+1446830968 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Enemigo.h
 	"Personaje.h"
 	"Jugador.h"
 	<stdlib.h>
+	<list>
 
-1446824810 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Enemigo.cpp
+1446831583 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Enemigo.cpp
 	"Enemigo.h"
 
-1446825332 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Entidad.h
+1446830680 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Entidad.h
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
+	<iostream>
+	<list>
 
-1446825315 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Entidad.cpp
+1446829280 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Entidad.cpp
 	"Entidad.h"
 
 1446825066 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Projectil.cpp
@@ -602,4 +609,12 @@
 1446825659 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Projectil.h
 	<list>
 	"Entidad.h"
+
+1446831923 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Proyectil.cpp
+	"Proyectil.h"
+
+1446831799 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Proyectil.h
+	<list>
+	"Entidad.h"
+	"Enemigo.h"
 
