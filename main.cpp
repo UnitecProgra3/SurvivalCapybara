@@ -86,13 +86,10 @@ int main( int argc, char* args[] )
 
         //SDL_Delay(17-(SDL_GetTicks()-last_frame));
         double diferencia = SDL_GetTicks()-last_frame;
-        cout<<"Diferencia: "<<diferencia<<endl;
         double ajuste = 17 - diferencia;
-        cout<<"Ajuste: "<<ajuste<<endl;
         if(ajuste>0)
             SDL_Delay(ajuste);
         last_frame=SDL_GetTicks();
-        cout<<SDL_GetTicks()<<endl;
 
 
         jugador.logica();

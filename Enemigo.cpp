@@ -73,5 +73,13 @@ void Enemigo::logica()
             current_texture=0;
     }
 
+    if(colision(rect,jugador->rect))
+    {
+        cout<<"Colision!"<<endl;
+    }else
+    {
+        cout<<endl;
+    }
+
     frames++;
 }

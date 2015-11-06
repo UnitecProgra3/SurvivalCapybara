@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="Jugador.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="957" topLine="28" />
+	<File name="Enemigo.cpp" open="1" top="0" tabpos="5">
+		<Cursor position="951" topLine="3" />
 	</File>
-	<File name="Jugador.h" open="1" top="0" tabpos="2">
-		<Cursor position="200" topLine="0" />
+	<File name="Jugador.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="1185" topLine="0" />
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="1885" topLine="51" />
+	<File name="Jugador.h" open="1" top="1" tabpos="2">
+		<Cursor position="221" topLine="0" />
+	</File>
+	<File name="Personaje.h" open="1" top="0" tabpos="6">
+		<Cursor position="536" topLine="0" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="3045" topLine="75" />
 	</File>
 </CodeBlocks_layout_file>

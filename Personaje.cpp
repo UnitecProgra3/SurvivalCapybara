@@ -16,3 +16,5 @@ void Personaje::dibujar()
     rect.y = y;
     SDL_RenderCopy(renderer, textures[state][current_texture], NULL, &rect);
 }
+
+
