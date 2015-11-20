@@ -3,6 +3,8 @@
 Personaje::Personaje()
 {
     tipo = "Persoanje";
+    push_amount=0;
+    push_orientation="";
 }
 
 Personaje::~Personaje()

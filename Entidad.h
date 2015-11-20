@@ -15,6 +15,7 @@ class Entidad
         string tipo;
         bool delete_flag;
         list<Entidad*>*entidades;
+        int capa;
         bool colision(SDL_Rect r1, SDL_Rect r2);
         virtual void dibujar()=0;
         virtual void logica()=0;

@@ -29,6 +29,8 @@ Jugador::Jugador(list<Entidad*>* entidades,SDL_Renderer* renderer)
     this->entidades = entidades;
 
     proyectil_cooldown=0;
+
+    vidas = 3;
 }
 
 Jugador::~Jugador()
@@ -36,9 +38,43 @@ Jugador::~Jugador()
     //dtor
 }
 
+void Jugador::logicaPush()
+{
+    if(push_orientation=="right")
+    {
+        x+=5;
+        push_amount-=1;
+        if(push_amount<=0)
+            push_orientation="";
+    }
+    if(push_orientation=="left")
+    {
+        x-=5;
+        push_amount-=1;
+        if(push_amount<=0)
+            push_orientation="";
+    }
+    if(push_orientation=="up")
+    {
+        y-=5;
+        push_amount-=1;
+        if(push_amount<=0)
+            push_orientation="";
+    }
+    if(push_orientation=="down")
+    {
+        y+=5;
+        push_amount-=1;
+        if(push_amount<=0)
+            push_orientation="";
+    }
+}
+
 void Jugador::logica()
 {
     const Uint8* currentKeyStates = SDL_GetKeyboardState( NULL );
+
+    logicaPush();
 
     if( currentKeyStates[ SDL_SCANCODE_RIGHT ] )
     {
@@ -79,4 +115,9 @@ void Jugador::logica()
     }
 
     frames++;
+}
+
+void Jugador::dibujar()
+{
+    Personaje::dibujar();
 }

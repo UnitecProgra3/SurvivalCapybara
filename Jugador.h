@@ -8,10 +8,13 @@
 class Jugador : public Personaje
 {
     public:
+        int vidas;
         int proyectil_cooldown;
         Jugador(list<Entidad*>* entidades,SDL_Renderer* renderer);
         virtual ~Jugador();
         void logica();
+        void logicaPush();
+        void dibujar();
     protected:
     private:
 };

@@ -89,7 +89,20 @@ void Enemigo::logica()
 
     if(colision(rect,jugador->rect))
     {
-        jugador->delete_flag = true;
+        //jugador->delete_flag = true;
+        if(x<jugador->x)
+            jugador->push_orientation="right";
+        if(x>jugador->x)
+            jugador->push_orientation="left";
+        if(y<jugador->y)
+            jugador->push_orientation="down";
+        if(y>jugador->y)
+            jugador->push_orientation="up";
+
+        jugador->push_amount=10;
+
+        jugador->vidas--;
+
         cout<<"Colision con jugador"<<endl;
     }
 

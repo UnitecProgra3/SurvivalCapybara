@@ -23,6 +23,8 @@ class Personaje : public Entidad
         double x, y;
         double velocity;
         int animation_velocity;
+        int push_amount;
+        string push_orientation;
         Personaje();
         virtual ~Personaje();
         virtual void dibujar();

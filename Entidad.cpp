@@ -4,6 +4,7 @@ Entidad::Entidad()
 {
     tipo = "Entidad";
     delete_flag=false;
+    capa=0;
 }
 
 Entidad::~Entidad()

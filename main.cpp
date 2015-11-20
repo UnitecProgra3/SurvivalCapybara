@@ -7,6 +7,7 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 #include "Proyectil.h"
+#include "Vida.h"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -62,6 +63,7 @@ int main( int argc, char* args[] )
 
     list<Entidad*>entidades;
     entidades.push_back(new Jugador(&entidades,renderer));
+    entidades.push_back(new Vida(&entidades,renderer));
 
     double last_frame=0;
     int frame=0;
@@ -81,7 +83,10 @@ int main( int argc, char* args[] )
             }
         }
 
-        if(frame%(60-(frame/100))==0)
+        int spawn_frequency=60-(frame/100);
+        if(spawn_frequency<5)
+            spawn_frequency=5;
+        if(frame%spawn_frequency==0)
             entidades.push_back(new Enemigo(&entidades,renderer));
 
         //SDL_Delay(17-(SDL_GetTicks()-last_frame));
@@ -109,10 +114,16 @@ int main( int argc, char* args[] )
 
         SDL_RenderCopy(renderer, background, NULL, &rect_background);
 
-        for(list<Entidad*>::iterator e = entidades.begin();
-            e!=entidades.end();
-            e++)
-            (*e)->dibujar();
+        for(int i=0;i<2;i++)
+        {
+            for(list<Entidad*>::iterator e = entidades.begin();
+                e!=entidades.end();
+                e++)
+            {
+                if((*e)->capa==i)
+                    (*e)->dibujar();
+            }
+        }
 
         SDL_RenderPresent(renderer);
         frame++;
