@@ -25,7 +25,7 @@ void Proyectil::dibujar()
 
 void Proyectil::logica()
 {
-    int velocity = 1;
+    int velocity = 3;
     if(state=="right")
     {
         rect.x+=velocity;
@@ -57,6 +57,12 @@ void Proyectil::logica()
                 cout<<"Colision con proyectil"<<endl;
             }
         }
+    }
+
+    if(rect.x<0 || rect.x>500 || rect.y<0 || rect.y>250)
+    {
+        this->delete_flag=true;
+        cout<<"Borrando bala"<<endl;
     }
 }
 

@@ -62,14 +62,9 @@ int main( int argc, char* args[] )
 
     list<Entidad*>entidades;
     entidades.push_back(new Jugador(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
-    entidades.push_back(new Enemigo(&entidades,renderer));
 
     double last_frame=0;
+    int frame=0;
     //Main Loop
     while(true)
     {
@@ -85,6 +80,9 @@ int main( int argc, char* args[] )
                     rect_character.x++;
             }
         }
+
+        if(frame%(60-(frame/100))==0)
+            entidades.push_back(new Enemigo(&entidades,renderer));
 
         //SDL_Delay(17-(SDL_GetTicks()-last_frame));
         double diferencia = SDL_GetTicks()-last_frame;
@@ -117,6 +115,7 @@ int main( int argc, char* args[] )
             (*e)->dibujar();
 
         SDL_RenderPresent(renderer);
+        frame++;
     }
 
 	return 0;

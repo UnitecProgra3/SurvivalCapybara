@@ -27,6 +27,8 @@ Jugador::Jugador(list<Entidad*>* entidades,SDL_Renderer* renderer)
     state="down";
 
     this->entidades = entidades;
+
+    proyectil_cooldown=0;
 }
 
 Jugador::~Jugador()
@@ -59,10 +61,14 @@ void Jugador::logica()
         state="down";
     }
 
-    if( currentKeyStates[ SDL_SCANCODE_Z ] )
+    if(proyectil_cooldown>0)
+        proyectil_cooldown--;
+
+    if( currentKeyStates[ SDL_SCANCODE_Z ] && proyectil_cooldown==0)
     {
         Proyectil *p = new Proyectil(entidades,renderer,x,y,state);
         entidades->push_back(p);
+        proyectil_cooldown=20;
     }
 
     if(frames%animation_velocity==0)

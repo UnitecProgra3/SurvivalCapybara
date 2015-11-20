@@ -557,7 +557,7 @@
 	<SDL2/SDL_image.h>
 	<iostream>
 
-1446831446 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/main.cpp
+1448035228 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/main.cpp
 	<SDL2/SDL.h>
 	<SDL2/SDL_image.h>
 	<iostream>
@@ -566,10 +566,10 @@
 	"Enemigo.h"
 	"Proyectil.h"
 
-1446831875 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
+1448034485 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.cpp
 	"Jugador.h"
 
-1446830928 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
+1448034216 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Jugador.h
 	<list>
 	"Personaje.h"
 	"Proyectil.h"
@@ -610,7 +610,7 @@
 	<list>
 	"Entidad.h"
 
-1446831923 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Proyectil.cpp
+1448034910 source:/home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Proyectil.cpp
 	"Proyectil.h"
 
 1446831799 /home/turupawn/Clases/Progra3Capybara/Lab/SDL2TestSimple-master/Proyectil.h
